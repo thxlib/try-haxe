@@ -10,7 +10,7 @@ RewriteEngine on
 #RewriteCond %{REQUEST_FILENAME} -d
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^(.*)$ /try/app/index.php?_url=%1 [L,QSA]
-RewriteRule ^(.*) /app/index.php?_url=$1 [L,QSA]
+RewriteRule ^(.*) app/index.php?_url=$1 [L,QSA]
 
 # try.thx-lib.org
 RewriteCond %{HTTP_HOST} try\.thx-lib\.org
