@@ -2,6 +2,8 @@
 #Options -Indexes
 
 RewriteEngine on
+RewriteLog "/var/log/apache2/rewrite.log"
+RewriteLogLevel 3
 
 # local userdir :S
 #RewriteCond %{HTTP_HOST} localhost
