@@ -8,7 +8,7 @@ RewriteCond %{HTTP_HOST} aaaliasing\.net
 RewriteRule ^(.*)$ http://104.236.77.114/try/$1 [R=301]
 
 # local userdir :S
-RewriteCond %{HTTP_HOST} localhost
+#RewriteCond %{HTTP_HOST} localhost
 RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_URI} ^/try/([^/]*)
 RewriteCond %{REQUEST_FILENAME} -d
