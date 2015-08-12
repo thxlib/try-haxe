@@ -5,7 +5,7 @@ RewriteEngine on
 
 # redirecting to new url
 RewriteCond %{HTTP_HOST} aaaliasing\.net
-RewriteRule ^(.*)$ http://try.haxe.org/$1 [R=301]
+RewriteRule ^(.*)$ http://104.236.77.114/try/$1 [R=301]
 
 # local userdir :S
 RewriteCond %{HTTP_HOST} localhost
@@ -13,13 +13,13 @@ RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_URI} ^/~([^/]*)/
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ /~%1/try-haxe/app/index.php?_url=$1 [L,QSA]
+RewriteRule ^(.*)$ /~%1/try/app/index.php?_url=$1 [L,QSA]
 
 # try.haxe.org
-RewriteCond %{HTTP_HOST} try\.haxe\.org
+RewriteCond %{HTTP_HOST} try\.thx-lib\.org
 RewriteRule ^$ /index.html [L,QSA]
 
-RewriteCond %{HTTP_HOST} try\.haxe\.org
+RewriteCond %{HTTP_HOST} try\.thx-lib\.org
 RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ /app/index.php?_url=$1&_root= [L,QSA]
