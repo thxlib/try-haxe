@@ -44,8 +44,8 @@ class Libs
 	];
 	
 	static var defaultChecked : Map < String, Array<String> > = [
-		"JS" => ["thx.color", "thx.core", "thx.format", "thx.format"],
-		"SWF" => ["thx.color", "thx.core", "thx.format", "thx.format"]
+		"JS" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.format"],
+		"SWF" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.format"]
 	]; // array of lib names
 	
 	
