@@ -20,6 +20,10 @@ class Libs
 	static var available : Map<String, Array<LibConf>> = [
 		"JS" => [
 			//{name:"nme", args : ["--remap","flash:browser"], head : ["<link rel='stylesheet' href='../swf.css' type='text/css'/>"], body:["<div id='haxe:jeash'></div>"]},
+			{name:"thx.color"},
+			{name:"thx.core"},
+			{name:"thx.culture"},
+			{name:"thx.format"},
 			{name:"actuate"},
 			//{name:"selecthx"},
 			//{name:"modernizr"},
@@ -28,6 +32,10 @@ class Libs
 			//{name:"three.js", head: ["<script src='../../../lib/js/stats-min.js'></script>", "<script src='../../../lib/js/three-min.js'></script>"]}
 		],
 		"SWF" => new Array<LibConf>().concat([
+			{name:"thx.color"},
+			{name:"thx.core"},
+			{name:"thx.culture"},
+			{name:"thx.format"},
 			{name:"actuate" , args : []},
 			{name:"format"},
 			{name:"away3d", swf:{src:"away3d4.swf"}, help:"http://away3d.com/livedocs/away3d/4.0/"},
@@ -35,7 +43,10 @@ class Libs
 		])
 	];
 	
-	static var defaultChecked : Map < String, Array<String> > = ["JS" => [], "SWF" => []]; // array of lib names
+	static var defaultChecked : Map < String, Array<String> > = [
+		"JS" => ["thx.color", "thx.core", "thx.format", "thx.format"],
+		"SWF" => ["thx.color", "thx.core", "thx.format", "thx.format"]
+	]; // array of lib names
 	
 	
 	static public function getLibsConfig(?target:Target, ?targetName:String):Array<LibConf>
