@@ -1,5 +1,5 @@
-DirectorySlash Off
-Options -Indexes
+#DirectorySlash Off
+#Options -Indexes
 
 RewriteEngine on
 
