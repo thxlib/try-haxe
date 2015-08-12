@@ -10,10 +10,10 @@ RewriteRule ^(.*)$ http://104.236.77.114/try/$1 [R=301]
 # local userdir :S
 RewriteCond %{HTTP_HOST} localhost
 RewriteCond %{REQUEST_URI} !index.php
-RewriteCond %{REQUEST_URI} ^/try/~([^/]*)/
+RewriteCond %{REQUEST_URI} ^/try/([^/]*)
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ /~%1/try/app/index.php?_url=$1 [L,QSA]
+RewriteRule ^(.*)$ /%1/try/app/index.php?_url=%1 [L,QSA]
 
 # try.haxe.org
 RewriteCond %{HTTP_HOST} try\.thx-lib\.org
