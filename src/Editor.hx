@@ -36,6 +36,7 @@ class Editor {
   var stage : JQuery;
   var jsTab : JQuery;
   var embedTab : JQuery;
+	var timingsTab : JQuery;
   var embedSource : CodeMirror;
   var embedPreview : JQuery;
 
@@ -115,6 +116,7 @@ class Editor {
     stage = new JQuery(".js-output .js-canvas");
     jsTab = new JQuery("a[href='#js-source']");
     embedTab = new JQuery("a[href='#embed-source']");
+		timingsTab = new JQuery("a[href='#compiler-time']");
     embedPreview = new JQuery("#embed-preview");
     mainName = new JQuery("#hx-options-form input[name='main']");
     dceName = new JQuery("#hx-options-form .hx-dce-name");
@@ -122,6 +124,7 @@ class Editor {
 
     jsTab.hide();
     embedTab.hide();
+		timingsTab.hide();
 
     new JQuery(".link-btn").bind("click", function(e){
       var _this = new JQuery(e.target);
@@ -505,8 +508,10 @@ class Editor {
 
     if( output.embed != "" && output.embed != null ){
       embedTab.show();
+			timingsTab.show();
     }else{
       embedTab.hide();
+			timingsTab.hide();
     }
 
     var jsSourceElem = new JQuery(jsSource.getWrapperElement());
