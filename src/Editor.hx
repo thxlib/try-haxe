@@ -14,20 +14,20 @@ using haxe.EnumTools;
 
 class Editor {
 
-	var cnx : HttpAsyncConnection;
+  var cnx : HttpAsyncConnection;
 
-	var program : Program;
-	var output : Output;
+  var program : Program;
+  var output : Output;
 
 
-	var gateway : String;
+  var gateway : String;
 
-	var form : JQuery;
-	var haxeSource : CodeMirror;
-	var jsSource : CodeMirror;
-	var runner : JQuery;
-	var messages : JQuery;
-	var compileBtn : JQuery;
+  var form : JQuery;
+  var haxeSource : CodeMirror;
+  var jsSource : CodeMirror;
+  var runner : JQuery;
+  var messages : JQuery;
+  var compileBtn : JQuery;
   var libs : JQuery;
   var targets : JQuery;
   var mainName : JQuery;
@@ -45,30 +45,30 @@ class Editor {
   var completions : Array<String>;
   var completionIndex : Int;
 
-	public function new(){
+  public function new(){
 
     markers = [];
     lineHandles = [];
 
-		//CodeMirror.commands.autocomplete = autocomplete;
+    //CodeMirror.commands.autocomplete = autocomplete;
     CodeMirror.commands.compile = function(_) compile();
     CodeMirror.commands.togglefullscreen = toggleFullscreenSource;
 
     HaxeLint.load();
 
-  	haxeSource = CodeMirror.fromTextArea( cast new JQuery("textarea[name='hx-source']")[0] , {
-			mode : "haxe",
-			//theme : "default",
-			lineWrapping : true,
-			lineNumbers : true,
-			extraKeys : {
-				"Ctrl-Space" : function (cm:CodeMirror) {autocomplete(cm);},
+    haxeSource = CodeMirror.fromTextArea( cast new JQuery("textarea[name='hx-source']")[0] , {
+      mode : "haxe",
+      //theme : "default",
+      lineWrapping : true,
+      lineNumbers : true,
+      extraKeys : {
+        "Ctrl-Space" : function (cm:CodeMirror) {autocomplete(cm);},
         "Ctrl-Enter" : "compile",
         "F8" : "compile",
         "F5" : "compile",
         "F11" : "togglefullscreen"
-			}
-        	,
+      }
+          ,
             lint: true,
             matchBrackets: true,
             autoCloseBrackets: true,
@@ -76,7 +76,7 @@ class Editor {
             indentUnit: 2,
             tabSize: 2,
             keyMap: "sublime"
-		} );
+    } );
 
     ColorPreview.create(haxeSource);
 
@@ -93,13 +93,13 @@ class Editor {
     Completion.registerHelper();
     haxeSource.on("change", onChange);
 
-		jsSource = CodeMirror.fromTextArea( cast new JQuery("textarea[name='js-source']")[0] , {
-			mode : "javascript",
-			//theme : "default",
-			lineWrapping : true,
-			lineNumbers : true,
-			readOnly : true
-		} );
+    jsSource = CodeMirror.fromTextArea( cast new JQuery("textarea[name='js-source']")[0] , {
+      mode : "javascript",
+      //theme : "default",
+      lineWrapping : true,
+      lineNumbers : true,
+      readOnly : true
+    } );
 
     embedSource = CodeMirror.fromTextArea( cast new JQuery("textarea[name='embed-source']")[0] , {
       mode : "htmlmixed",
@@ -107,9 +107,9 @@ class Editor {
       readonly : true
     });
 
-		runner = new JQuery("iframe[name='js-run']");
-		messages = new JQuery(".messages");
-		compileBtn = new JQuery(".compile-btn");
+    runner = new JQuery("iframe[name='js-run']");
+    messages = new JQuery(".messages");
+    compileBtn = new JQuery(".compile-btn");
     libs = new JQuery("#hx-options-form .hx-libs");
     targets = new JQuery("#hx-options-form .hx-targets");
     stage = new JQuery(".js-output .js-canvas");
@@ -133,22 +133,22 @@ class Editor {
     new JQuery(".fullscreen-btn").bind("click" , toggleFullscreenRunner);
     new JQuery("#hx-example-select").bind("change" , toggleExampleChange);
 
-		new JQuery("body").bind("keyup", onKey );
+    new JQuery("body").bind("keyup", onKey );
 
-		new JQuery("a[data-toggle='tab']").bind( "shown", function(e){
-			jsSource.refresh();
+    new JQuery("a[data-toggle='tab']").bind( "shown", function(e){
+      jsSource.refresh();
       haxeSource.refresh();
       embedSource.refresh();
-		});
+    });
 
     dceName.delegate("input[name='dce']" , "change" , onDce );
     analyzerName.delegate("input[name='analyzer']" , "change" , onAnalyzer );
     targets.delegate("input[name='target']" , "change" , onTarget );
 
-		compileBtn.bind( "click" , compile );
+    compileBtn.bind( "click" , compile );
 
-		var apiRoot = new JQuery("body").data("api");
-		cnx = HttpAsyncConnection.urlConnect(apiRoot+"/compiler");
+    var apiRoot = new JQuery("body").data("api");
+    cnx = HttpAsyncConnection.urlConnect(apiRoot+"/compiler");
 
     program = {
       uid : null,
@@ -166,10 +166,10 @@ class Editor {
 
     setTarget( api.Program.Target.JS( "test" ) );
 
-		var uid = Browser.window.location.hash;
-		if (uid.length > 0){
+    var uid = Browser.window.location.hash;
+    if (uid.length > 0){
       uid = uid.substr(1);
-  		cnx.Compiler.getProgram.call([uid], onProgram);
+      cnx.Compiler.getProgram.call([uid], onProgram);
     }
   }
 
@@ -202,20 +202,20 @@ class Editor {
 
   function setAnalyzer(analyzer:String)
   {
-	  program.analyzer = analyzer;
-	  var radio = new JQuery( 'input[name=\'analyzer\'][value=\'$analyzer\']' );
-	  radio.attr( "checked" ,"checked" );
+    program.analyzer = analyzer;
+    var radio = new JQuery( 'input[name=\'analyzer\'][value=\'$analyzer\']' );
+    radio.attr( "checked" ,"checked" );
   }
 
   function toggleExampleChange(e : JqEvent) {
     var _this = new JQuery(e.target);
-	var ajax = untyped __js__("$.ajax");
-	ajax({
-		url:'examples/Example-${_this.val()}.hx',
-		dataType: "text"
-	}).done(function(data) {
-		haxeSource.setValue(data);
-	});
+  var ajax = untyped __js__("$.ajax");
+  ajax({
+    url:'examples/Example-${_this.val()}.hx',
+    dataType: "text"
+  }).done(function(data) {
+    haxeSource.setValue(data);
+  });
   }
 
   function fullscreen(){
@@ -252,7 +252,7 @@ class Editor {
         api.Program.Target.JS('test');
     }
 
-   	if (name == "SWF")
+     if (name == "SWF")
     {
       new JQuery("#output").click();
     }
@@ -285,7 +285,7 @@ class Editor {
       var el = libs.find("."+t+"-libs");
       var libs : Array<Libs.LibConf> = Libs.getLibsConfig(t);
       var def : Array<String> = Libs.getDefaultLibs(t);
-	  if (def == null) def = [];
+    if (def == null) def = [];
       for( l in libs ){
 
         el.append(
@@ -301,20 +301,20 @@ class Editor {
     }
   }
 
-	//function onProgram(p:{p:Program, o:Output})
+  //function onProgram(p:{p:Program, o:Output})
   function onProgram(p:Program)
-	{
-		//trace(p);
-		if (p != null)
-		{
-			// sharing
-			//program = p.p;
+  {
+    //trace(p);
+    if (p != null)
+    {
+      // sharing
+      //program = p.p;
       program = p;
 
       // auto-fork
       program.uid = null;
 
-	  haxeSource.setValue(program.main.source);
+    haxeSource.setValue(program.main.source);
       setTarget( program.target );
       setDCE(program.dce);
       setAnalyzer(program.analyzer);
@@ -333,14 +333,14 @@ class Editor {
 
       //if (p.o != null) onCompile(p.o);
 
-		}
+    }
 
-	}
+  }
 
-	public function autocomplete( cm : CodeMirror ){
+  public function autocomplete( cm : CodeMirror ){
     clearErrors();
     messages.fadeOut(0);
-		updateProgram();
+    updateProgram();
     var src = cm.getValue();
 
     var completion = CompletionType.DEFAULT;
@@ -364,7 +364,7 @@ class Editor {
 
 
     cnx.Compiler.autocomplete.call( [ program , idx ] , function( comps:CompletionResult ) displayCompletions( cm , comps ) );
-	}
+  }
 
 //   function showHint( cm : CodeMirror ){
 //     var src = cm.getValue();
@@ -389,20 +389,20 @@ class Editor {
 //     };
 //   }
 
-	public function displayCompletions(cm : CodeMirror , comps : CompletionResult ) {
+  public function displayCompletions(cm : CodeMirror , comps : CompletionResult ) {
 
     completions = null;
     if (comps.list != null) {
-  		completions = comps.list;
+      completions = comps.list;
 
         Completion.completions = [];
 
         for (completion in completions)
         {
-        	Completion.completions.push({n: completion});
+          Completion.completions.push({n: completion});
         }
 
-      	cm.execCommand("autocomplete");
+        cm.execCommand("autocomplete");
     }
     if (comps.type != null) {
       trace(comps.type);
@@ -419,7 +419,7 @@ class Editor {
       messages.fadeIn();
       markErrors(comps.errors);
     }
-	}
+  }
 
   public function onKey( e : JqEvent ){
      /*if( e.keyCode == 27 ){ // Escape
@@ -438,68 +438,68 @@ class Editor {
 
   }
 
-	public function onChange( cm :CodeMirror, e : js.codemirror.CodeMirror.ChangeEvent ){
+  public function onChange( cm :CodeMirror, e : js.codemirror.CodeMirror.ChangeEvent ){
     var txt :String = e.text[0];
 
     if( txt.trim().endsWith( "." ) || txt.trim().endsWith( "()" ) ){
       autocomplete( haxeSource );
     }
-	}
+  }
 
-	public function compile(?e){
-		if( e != null ) e.preventDefault();
+  public function compile(?e){
+    if( e != null ) e.preventDefault();
     messages.fadeOut(0);
     clearErrors();
-		compileBtn.buttonLoading();
-		updateProgram();
-		cnx.Compiler.compile.call( [program] , onCompile );
-	}
+    compileBtn.buttonLoading();
+    updateProgram();
+    cnx.Compiler.compile.call( [program] , onCompile );
+  }
 
-	function updateProgram(){
-		program.main.source = haxeSource.getValue();
-		program.main.name = mainName.val();
+  function updateProgram(){
+    program.main.source = haxeSource.getValue();
+    program.main.name = mainName.val();
     program.dce = new JQuery( 'input[name=\'dce\']:checked' ).val();
     program.analyzer = new JQuery( 'input[name=\'analyzer\']:checked' ).val();
 
-		var libs = new Array();
+    var libs = new Array();
     var sel = Type.enumConstructor(program.target);
 
-		var inputs = new JQuery("#hx-options .hx-libs ."+sel+"-libs input.lib:checked");
-		// TODO: change libs array only then need
-		for (i in inputs)  // refill libs array, only checked libs
-		{
-			//var l:api.Program.Library = { name:i.attr("value"), checked:true };
-			//var d = Std.string(i.data("args"));
-			//if (d.length > 0) l.args = d.split("~");
-			libs.push(i.val());
-		}
+    var inputs = new JQuery("#hx-options .hx-libs ."+sel+"-libs input.lib:checked");
+    // TODO: change libs array only then need
+    for (i in inputs)  // refill libs array, only checked libs
+    {
+      //var l:api.Program.Library = { name:i.attr("value"), checked:true };
+      //var d = Std.string(i.data("args"));
+      //if (d.length > 0) l.args = d.split("~");
+      libs.push(i.val());
+    }
 
-		program.libs = libs;
-	}
+    program.libs = libs;
+  }
 
-	public function run(){
-		if( output.success ){
-  		var run = output.href ;
-  		runner.attr("src" , run + "?r=" + Std.string(Math.random()) );
+  public function run(){
+    if( output.success ){
+      var run = output.href ;
+      runner.attr("src" , run + "?r=" + Std.string(Math.random()) );
       new JQuery(".link-btn, .fullscreen-btn")
         .buttonReset()
         .attr("href" , run + "?r=" + Std.string(Math.random()) );
 
-		}else{
-			runner.attr("src" , "about:blank" );
+    }else{
+      runner.attr("src" , "about:blank" );
       new JQuery(".link-btn, .fullscreen-btn")
         .addClass("disabled")
         .attr("href" , "#" );
-		}
-	}
+    }
+  }
 
-	public function onCompile( o : Output ){
+  public function onCompile( o : Output ){
 
-		output = o;
-		program.uid = output.uid;
+    output = o;
+    program.uid = output.uid;
     Browser.window.location.hash = "#" + output.uid;
 
-		jsSource.setValue( output.source );
+    jsSource.setValue( output.source );
     embedSource.setValue( output.embed );
     embedPreview.html( output.embed );
 
@@ -510,12 +510,12 @@ class Editor {
     }
 
     var jsSourceElem = new JQuery(jsSource.getWrapperElement());
-		var msg : Array<String> = [];
+    var msg : Array<String> = [];
     var msgType : String = "";
 
-		if( output.success ){
+    if( output.success ){
       msgType = "success";
-			jsSourceElem.show();
+      jsSourceElem.show();
       jsSource.refresh();
       stage.show();
 
@@ -524,14 +524,14 @@ class Editor {
         case JS(_) : jsTab.show();
         default : jsTab.hide();
       }
-		}else{
+    }else{
       msg = SourceTools.splitLines(output.stderr);
       msgType = "error";
       stage.hide();
       jsTab.hide();
       jsSourceElem.hide();
       markErrors(output.errors);
-		}
+    }
 
     messages.html( "<div class='alert alert-"+msgType+"'><h4 class='alert-heading'>" + output.message + "</h4><div class='message'></div></div>" );
     for( m in msg ){
@@ -545,11 +545,11 @@ class Editor {
     }
 
     messages.fadeIn();
-		compileBtn.buttonReset();
+    compileBtn.buttonReset();
 
-		run();
+    run();
 
-	}
+  }
 
   public function clearErrors(){
       HaxeLint.data = [];
@@ -591,7 +591,7 @@ class Editor {
       }
     }
 
-	HaxeLint.updateLinting(haxeSource);
+    HaxeLint.updateLinting(haxeSource);
   }
 
 }
