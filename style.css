@@ -68,7 +68,7 @@ a.btn i {
   height:473px;
 }
 .js-output .js-run {
-  height:461px;
+  height:408px;
 }
 
 .js-run {
@@ -111,7 +111,7 @@ a.btn i {
 }
 
 .compiler-out .tab-content {
-  height:491px;
+  height:438px;
 }
 
 div.CodeMirror span.CodeMirror-matchingbracket {
@@ -193,4 +193,9 @@ body.fullscreen-runner {
   height: 25px;
   position: fixed;
   z-index: 10;
+}
+
+#compiler-time {
+	white-space: pre;
+	font-family: monospace;
 }
