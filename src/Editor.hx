@@ -540,7 +540,8 @@ class Editor {
 
 
     if( output.success && output.stderr != null ){
-      messages.append( new JQuery("<pre>").text(output.stderr) );
+      new JQuery("#compiler-time").text(output.stderr);
+      //messages.append( new JQuery("<pre>").text(output.stderr) );
 
     }
 
