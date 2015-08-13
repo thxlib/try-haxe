@@ -24,6 +24,10 @@ class Libs
 			{name:"thx.core"},
 			{name:"thx.culture"},
 			{name:"thx.format"},
+			{name:"thx.promise"},
+			{name:"thx.semver"},
+			{name:"thx.stream"},
+			{name:"thx.unit"},
 			{name:"actuate"},
 			//{name:"selecthx"},
 			//{name:"modernizr"},
@@ -44,8 +48,8 @@ class Libs
 	];
 	
 	static var defaultChecked : Map < String, Array<String> > = [
-		"JS" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.format"],
-		"SWF" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.format"]
+		"JS" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit"],
+		"SWF" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit"]
 	]; // array of lib names
 	
 	
