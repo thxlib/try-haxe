@@ -25,7 +25,11 @@ class Compiler {
 	var mainFile : String;
 	public static var haxePath = "haxe";
 
-	public function new(){}
+	public function new() {}
+
+	static function __init__() {
+		untyped __php__('putenv("HOME=/home/tryhaxe")');
+	}
 
 	static function checkMacros( s : String ){
 		var forbidden = [
