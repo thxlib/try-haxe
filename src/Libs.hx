@@ -60,10 +60,9 @@ class Libs
   ];
 
   static var defaultChecked : Map < String, Array<String> > = [
-    "JS" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas"],
-    "SWF" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas"]
+    "JS" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas", "nape", "hscript", "haxeui", "yaml"],
+    "SWF" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas", "nape", "hscript", "haxeui", "yaml"]
   ]; // array of lib names
-
 
   static public function getLibsConfig(?target:Target, ?targetName:String):Array<LibConf>
   {
