@@ -45,20 +45,13 @@
       }
 
       .top-bar {
-        background: #ccc;
-        color: #fff;
-        padding: 5px;
-        margin-bottom: 5px;
-        vertical-align: middle;
-
+        background: #eee;
+        padding: 0 5px;
+        vertical-align: top;
       }
       .top-bar a {
         color: #369;
-      }
-
-      a.logo-link, .logo-link:hover, .logo-link:active, .logo-link:link {
         text-decoration: none;
-        color: #FFF;
       }
 
       a.logo-link strong {
@@ -71,18 +64,19 @@
 
       #nav {
         position:absolute;
-        top:6px;
-        right:5px;
+        top:1px;
+        right:2px;
+        font-size: 9px;
       }
 
       #nav a {
-        border:1px solid #bbb;
-        padding:0 10px;
-        margin-right:5px;
-        border-radius:4px;
-        color:#444;
-        text-decoration:none;
-        background:#f0f0f0;
+        border: none;
+        padding:0 8px;
+        margin-left: 1px;
+        border-radius: 2px;
+        color: #444;
+        text-decoration: none;
+        background: #fff;
       }
 
       #nav a:hover {
@@ -93,8 +87,8 @@
   </head>
   <body>
     <nav id="nav" role="navigation">
-      <a href="#code" onclick="showCode();return false">Code</a>
-      <a href="#results" onclick="run();return false">Run</a>
+      <a href="#code" onclick="showCode();return false">code</a>
+      <a href="#results" onclick="run();return false">run</a>
     </nav>
     <div class="top-bar">
       <a href="http://try.haxe.org/" class="logo-link" target="_blank">try thx</a>
