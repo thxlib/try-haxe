@@ -40,7 +40,7 @@ class Libs
       {name:"nape"},
       {name:"hscript"},
       {name:"haxeui"},
-      (name:"yaml"},
+      {name:"yaml"},
       //{name:"three.js", head: ["<script src='../../../lib/js/stats-min.js'></script>", "<script src='../../../lib/js/three-min.js'></script>"]}
     ],
     "SWF" => new Array<LibConf>().concat([
@@ -61,7 +61,7 @@ class Libs
       {name:"nape"},
       {name:"hscript"},
       {name:"haxeui"},
-      (name:"yaml"},
+      {name:"yaml"},
       {name:"away3d", swf:{src:"away3d4.swf"}, help:"http://away3d.com/livedocs/away3d/4.0/"},
       //{name:"starling" },
     ])
