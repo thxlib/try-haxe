@@ -37,6 +37,10 @@ class Libs
       //{name:"modernizr"},
       //{name:"browserhx"},
       {name:"format" },
+      {name:"nape"},
+      {name:"hscript"},
+      {name:"haxeui"},
+      (name:"yaml"},
       //{name:"three.js", head: ["<script src='../../../lib/js/stats-min.js'></script>", "<script src='../../../lib/js/three-min.js'></script>"]}
     ],
     "SWF" => new Array<LibConf>().concat([
@@ -54,14 +58,18 @@ class Libs
       {name:"utest"},
       {name:"actuate" , args : []},
       {name:"format"},
+      {name:"nape"},
+      {name:"hscript"},
+      {name:"haxeui"},
+      (name:"yaml"},
       {name:"away3d", swf:{src:"away3d4.swf"}, help:"http://away3d.com/livedocs/away3d/4.0/"},
       //{name:"starling" },
     ])
   ];
 
   static var defaultChecked : Map < String, Array<String> > = [
-    "JS" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas", "nape", "hscript", "haxeui", "yaml"],
-    "SWF" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas", "nape", "hscript", "haxeui", "yaml"]
+    "JS" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas"],
+    "SWF" => ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "sui", "minicanvas"]
   ]; // array of lib names
 
   static public function getLibsConfig(?target:Target, ?targetName:String):Array<LibConf>
