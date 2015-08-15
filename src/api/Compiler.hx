@@ -273,7 +273,7 @@ class Compiler {
         html.body.push("<style type='text/css'>
           #debug_console {
             background:#fff;
-            font-size:14px !important;
+            font-size:12px !important;
             font-family:monospace !important;
             white-space: pre;
           }
