@@ -31,7 +31,7 @@ class Compiler {
   }
 
   public function new(){}
-  
+
   static function checkMacros( s : String ){
     var forbidden = [
       ~/@([^:]*):([\/*a-zA-Z\s]*)(macro|build|autoBuild|file|audio|bitmap|font)/,
@@ -273,13 +273,15 @@ class Compiler {
         html.body.push("<style type='text/css'>
           #debug_console {
             background:#fff;
-            font-size:14px;
+            font-size:14px !important;
+            font-family:monospace !important;
+            white-space: pre;
           }
           #debug_console font.log-normal {
             color:#000;
           }
           #debug_console a.log-button  {
-            display:none;
+            /* display:none; */
           }
           </style>");
 
