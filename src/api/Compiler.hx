@@ -281,7 +281,7 @@ class Compiler {
             color:#000;
           }
           #debug_console a.log-button  {
-            /* display:none; */
+            display:none;
           }
           </style>");
 
