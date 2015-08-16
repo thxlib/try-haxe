@@ -269,24 +269,6 @@ class Compiler {
         args.push( "-js" );
         args.push( outputPath );
         html.body.push("<script src='/lib/js/logger.js'></script>");
-        /*
-        html.body.push("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>");
-        html.body.push("<script src='//markknol.github.io/console-log-viewer/console-log-viewer.js'></script>");
-        html.body.push("<style type='text/css'>
-          #debug_console {
-            background:#fff;
-            font-size:12px !important;
-            font-family:monospace !important;
-            white-space: pre;
-          }
-          #debug_console font.log-normal {
-            color:#000;
-          }
-          #debug_console a.log-button  {
-            display:none;
-          }
-          </style>");
-        */
 
       case SWF( name , version ):
         Api.checkSanity( name );
@@ -345,7 +327,7 @@ class Compiler {
       switch (program.target) {
         case JS(_):
           output.source = File.getContent(outputPath);
-          html.body.push("<script>" + output.source + "</script>");
+          html.body.push("<script>\n//<![CDATA[\n" + output.source + "\n//]]>\n</script>");
         default:
       }
       var h = new StringBuf();
