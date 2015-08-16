@@ -1,5 +1,4 @@
-import utest.Assert;
-import utest.Runner;
+import utest.*;
 import utest.ui.Report;
 
 /*
