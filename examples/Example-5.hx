@@ -15,6 +15,6 @@ class Test {
         max : 30
       }, function(v) trace('int range: $v'));
     ui.trigger("trigger", function() trace("triggered"));
-    ui.attach(bottomRight);
+    ui.attach();
   }
 }
