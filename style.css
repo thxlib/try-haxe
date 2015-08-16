@@ -59,7 +59,7 @@ a.btn i {
     margin-top: 3px;
 }
 
-.CodeMirror-wrap, .hx-options, .js-canvas
+.CodeMirror-wrap, .js-canvas
 {
   padding: 0;
   margin: 0;
