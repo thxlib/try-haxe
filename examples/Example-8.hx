@@ -1,8 +1,6 @@
 import thx.DateTime;
-import thx.culture.Culture;
-import thx.culture.Embed;
+import thx.culture.*;
 using thx.format.DateFormat;
-
 
 class Test {
   static var it = Embed.culture('it-it');
