@@ -268,7 +268,7 @@ class Compiler {
         outputPath = tmpDir + name + ".js";
         args.push( "-js" );
         args.push( outputPath );
-        html.body.push("<script src='lib/js/logger.js");
+        html.body.push("<script src='lib/js/logger.js'></script>");
         /*
         html.body.push("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>");
         html.body.push("<script src='//markknol.github.io/console-log-viewer/console-log-viewer.js'></script>");
