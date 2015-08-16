@@ -43,7 +43,7 @@ class Libs
     "SWF" => libraries
   ];
 
-  static var defaultSelected = ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit"];
+  static var defaultSelected = ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "utest"];
   static var defaultChecked : Map < String, Array<String> > = [
     "JS" => defaultSelected.concat(["minicanvas", "rdg", "yaml", "sui"]),
     "SWF" => defaultSelected
