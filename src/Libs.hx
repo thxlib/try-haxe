@@ -31,6 +31,7 @@ class Libs
               {name:"actuate"},
               {name:"format" },
               {name:"lime"},
+              {name:"openfl"},
               {name:"nape"},
               {name:"hscript"},
               {name:"haxeui"},
