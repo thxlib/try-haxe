@@ -30,6 +30,7 @@ class Libs
               {name:"utest"},
               {name:"actuate"},
               {name:"format" },
+              {name:"lime"},
               {name:"nape"},
               {name:"hscript"},
               {name:"haxeui"},
