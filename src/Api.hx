@@ -18,14 +18,14 @@ class Api {
   public static var host : String;
 
   public static var tmp = "../tmp";
-  
+
   public function new(){}
 
   public static function checkSanity( s : String ){
     var alphaNum = ~/[^a-zA-Z0-9]/;
     if( alphaNum.match(s) ) throw 'Unauthorized identifier : $s';
   }
-  
+
   public static function checkDCE(s : String){
     if (s != "full" && s != "no" && s != "std") throw 'Invalid dce : $s';
   }
@@ -94,8 +94,8 @@ class Api {
     }
 
     var analyzer = d.params.get('analyzer');
-    if( analyzer == null ) analyzer = "yes";  
-    
+    if( analyzer == null ) analyzer = "yes";
+
     var uid = 'u'+haxe.crypto.Md5.encode(url);
     var compiler = new api.Compiler();
 
@@ -103,7 +103,7 @@ class Api {
 
     if ( program == null ) {
       var req = new haxe.Http( url );
-      req.addHeader("User-Agent","try.haxe.org (Haxe/PHP)");
+      req.addHeader("User-Agent","try.thx-lib.org (Haxe/PHP)");
       req.addHeader("Accept","*/*");
       req.onError = function(m){
         throw m;
@@ -120,7 +120,7 @@ class Api {
             target : SWF( "test", 11.4 ),
             libs : new Array()
         }
-        
+
         compiler.prepareProgram( program );
 
         redirectToProgram( program.uid );
@@ -133,7 +133,7 @@ class Api {
       redirectToProgram( program.uid );
     }
   }
-  
+
   function redirectToProgram( uid : String ) {
     var tpl = '../redirect.html';
     var redirect = File.getContent(tpl);
