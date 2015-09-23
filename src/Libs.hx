@@ -19,6 +19,7 @@ class Libs
   static var libraries = [
               {name:"thx.color"},
               {name:"thx.core"},
+              {name:"thx.csv"},
               {name:"thx.culture"},
               {name:"thx.format"},
               {name:"thx.promise"},
@@ -45,7 +46,7 @@ class Libs
     "SWF" => libraries
   ];
 
-  static var defaultSelected = ["thx.color", "thx.core", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "utest"];
+  static var defaultSelected = ["thx.color", "thx.core", "thx.csv", "thx.culture", "thx.format", "thx.promise", "thx.semver", "thx.stream", "thx.unit", "utest"];
   static var defaultChecked : Map < String, Array<String> > = [
     "JS" => defaultSelected.concat(["minicanvas", "rdg", "yaml", "sui"]),
     "SWF" => defaultSelected
